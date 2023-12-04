@@ -1,0 +1,65 @@
+{
+    "name": "sample",
+    "path": "models/sd/icbin_lora_lcm.safetensors",
+    "motion_module": "/home/ishpuntov/code/stable_copy/stable-diffusion-webui/extensions/sd-webui-animatediff/model/mm_sd_v15_v2.ckpt",
+    "compile": false,
+    "seed": [
+        34587484827834
+    ],
+    "scheduler": "lcm",
+    "steps": 8,
+    "guidance_scale": 4.0,
+    "clip_skip": 1,
+    "prompt_map": {
+        "0": "Visualize a film noir style image of an girl, where the dramatic and moody aesthetics of classic film noir cinema are captured. The girl is depicted in a high-contrast, monochromatic style, with deep shadows and sharp highlights creating a sense of mystery and intrigue. The setting might include typical film noir elements like rain-slicked streets, shadowy alleyways, or the stark interiors of a detective's office. This style is not just about recreating the look of film noir; it\u2019s about evoking the genre's atmosphere of suspense and moral ambiguity. The girl, portrayed in this cinematic style, becomes part of a larger narrative, a piece of a puzzle in a story filled with twists and turns. It\u2019s a journey into a world of dark beauty, where the girl is more than just an item \u2013 it's a character in its own right."
+    },
+    "n_prompt": [
+        "ugly, deformed, noisy, blurry, low contrast, realism, photorealistic, vibrant, colorful ,CyberRealistic_Negative-neg , nsfw , nude."
+    ],
+    "ip_adapter_map": {
+        "is_plus": {
+            "enable": true,
+            "input_image_dir": "ip_adapter_image/test",
+            "save_input_image": false,
+            "resized_to_square": false,
+            "scale": 0.7
+        },
+        "is_plus_face": {
+            "enable": true,
+            "input_image_dir": "ip_adapter_image/face",
+            "save_input_image": false,
+            "resized_to_square": false,
+            "scale": 0.35
+        }
+    },
+    "controlnet_map": {
+        "input_image_dir": "controlnet_image/test",
+        "max_samples_on_vram": 200,
+        "max_models_on_vram": 1,
+        "save_detectmap": true,
+        "preprocess_on_gpu": true,
+        "is_loop": false,
+        "controlnet_openpose": {
+            "enable": true,
+            "use_preprocessor": true,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "qr_code_monster_v2": {
+            "enable": true,
+            "use_preprocessor": true,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        }
+    },
+    "output": {
+        "format": "gif",
+        "fps": 25
+    }
+}

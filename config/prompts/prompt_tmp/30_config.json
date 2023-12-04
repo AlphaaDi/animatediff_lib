@@ -1,0 +1,100 @@
+{
+    "name": "sample",
+    "path": "models/sd/icbinpICantBelieveIts_seco.safetensors",
+    "motion_module": "/home/ishpuntov/code/stable_copy/stable-diffusion-webui/extensions/sd-webui-animatediff/model/mm_sd_v15_v2.ckpt",
+    "compile": false,
+    "seed": [
+        34587484827834
+    ],
+    "scheduler": "k_dpmpp_sde",
+    "steps": 20,
+    "guidance_scale": 8.0,
+    "clip_skip": 2,
+    "prompt_map": {
+        "0": "biomechanical cyberpunk person . cybernetics, human-machine fusion, dystopian, organic meets artificial, dark, intricate, highly detailed"
+    },
+    "n_prompt": [
+        "natural, colorful, deformed, sketch, low contrast, watercolor, nude, nsfw"
+    ],
+    "ip_adapter_map": {
+        "enable": true,
+        "input_image_dir": "ip_adapter_image/test",
+        "prompt_fixed_ratio": 0.5,
+        "save_input_image": true,
+        "resized_to_square": false,
+        "scale": 0.9,
+        "is_plus_face": true,
+        "is_plus": false,
+        "is_light": false
+    },
+    "controlnet_map": {
+        "input_image_dir": "controlnet_image/test",
+        "max_samples_on_vram": 200,
+        "max_models_on_vram": 1,
+        "save_detectmap": true,
+        "preprocess_on_gpu": true,
+        "is_loop": false,
+        "controlnet_ip2p": {
+            "enable": true,
+            "use_preprocessor": true,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "controlnet_openpose": {
+            "enable": false,
+            "use_preprocessor": false,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "controlnet_softedge": {
+            "enable": false,
+            "use_preprocessor": false,
+            "preprocessor": {
+                "type": "softedge_pidsafe",
+                "param": {}
+            },
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "controlnet_depth": {
+            "enable": false,
+            "use_preprocessor": false,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "controlnet_normalbae": {
+            "enable": false,
+            "use_preprocessor": false,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        },
+        "qr_code_monster_v2": {
+            "enable": true,
+            "use_preprocessor": true,
+            "guess_mode": false,
+            "controlnet_conditioning_scale": 1.0,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0,
+            "control_scale_list": []
+        }
+    },
+    "output": {
+        "format": "gif",
+        "fps": 10
+    }
+}

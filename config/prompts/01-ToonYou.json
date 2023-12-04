@@ -1,0 +1,25 @@
+{
+  "name": "ToonYou",
+  "path": "models/sd/toonyou_beta3.safetensors",
+  "motion_module": "/home/ishpuntov/code/stable_copy/stable-diffusion-webui/extensions/sd-webui-animatediff/model/mm_sd_v15_v2.ckpt",
+  "compile": false,
+  "seed": [10788741199826055777],
+  "scheduler": "k_dpmpp_2m_sde",
+  "steps": 30,
+  "guidance_scale": 7.5,
+  "clip_skip": 1,
+  "prompt_map": {
+      "0":  "smile standing,((spider webs:1.0))",
+      "32":  "(((walking))),((spider webs:1.0))"
+  },
+  "n_prompt": [
+    "worst quality, low quality, cropped, lowres, text, jpeg artifacts, multiple view"
+  ],
+  "output": {
+    "format" : "mp4",
+    "fps" : 16,
+    "encode_param":{
+      "crf": 10
+    }
+  }
+}

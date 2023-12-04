@@ -1,0 +1,43 @@
+{
+    "name": "sample",
+    "path": "models/sd/icbinpICantBelieveIts_seco.safetensors",
+    "motion_module": "/home/ishpuntov/code/stable_copy/stable-diffusion-webui/extensions/sd-webui-animatediff/model/mm_sd_v15_v2.ckpt",
+    "compile": false,
+    "seed": [
+        997
+    ],
+    "scheduler": "k_dpmpp_sde",
+    "steps": 30,
+    "guidance_scale": 8.0,
+    "clip_skip": 1,
+    "prompt_map": {
+        "0": "biomechanical cyberpunk person . cybernetics, human-machine fusion, dystopian, organic meets artificial, dark, intricate, highly detailed"
+    },
+    "n_prompt": [
+        "natural, colorful, deformed, sketch, low contrast, watercolor"
+    ],
+    "upscale_config": {
+        "scheduler": "k_dpmpp_sde",
+        "steps": 40,
+        "strength": 0.5,
+        "guidance_scale": 10,
+        "controlnet_tile": {
+            "enable": true,
+            "controlnet_conditioning_scale": 1.0,
+            "guess_mode": false,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0
+        },
+        "controlnet_ip2p": {
+            "enable": true,
+            "controlnet_conditioning_scale": 0.5,
+            "guess_mode": false,
+            "control_guidance_start": 0.0,
+            "control_guidance_end": 1.0
+        }
+    },
+    "output": {
+        "format": "gif",
+        "fps": 10
+    }
+}
