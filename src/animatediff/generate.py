@@ -2,6 +2,7 @@ import glob
 import logging
 import os
 import re
+import cv2
 from os import PathLike
 from pathlib import Path
 from typing import Any, Dict, List, Union
@@ -306,8 +307,6 @@ def apply_color_mapping(index_mask, index_to_color):
     return rgb_output
 
 
-import cv2
-from xmem import PropagationXMem
 class SamSegPreProcessor:
     def __init__(self, path, device):
         sam = sam_model_registry["vit_l"](checkpoint=path)
