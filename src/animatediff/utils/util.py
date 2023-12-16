@@ -54,7 +54,7 @@ def save_video(video: Tensor, save_path: PathLike, fps: int = 8):
 
 def path_from_cwd(path: PathLike) -> str:
     path = Path(path)
-    return str(path.absolute().relative_to(Path.cwd()))
+    return str(path.absolute())
 
 
 def resize_for_condition_image(input_image: Image, us_width: int, us_height: int):

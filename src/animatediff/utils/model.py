@@ -37,7 +37,7 @@ def get_base_model(model_name_or_path: str, local_dir: Path, force: bool = False
     if model_is_repo_id:
         logger.debug("Base model is a HuggingFace repo ID")
         if model_save_dir.joinpath("model_index.json").exists():
-            logger.debug(f"Base model already downloaded to: {path_from_cwd(model_save_dir)}")
+            logger.debug(f"Base model already downloaded to: {model_save_dir}")
         else:
             logger.info(f"Downloading base model from {model_name_or_path}...")
             _ = get_hf_pipeline(model_name_or_path, model_save_dir, save=True, force_download=force)
