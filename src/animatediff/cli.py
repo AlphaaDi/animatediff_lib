@@ -87,9 +87,9 @@ cli.add_typer(stylize, name="stylize")
 
 
 
-# mildly cursed globals to allow for reuse of the pipeline if we're being called as a module
-g_pipeline: Optional[AnimationPipeline] = None
-last_model_path: Optional[Path] = None
+# # mildly cursed globals to allow for reuse of the pipeline if we're being called as a module
+# g_pipeline: Optional[AnimationPipeline] = None
+# last_model_path: Optional[Path] = None
 
 
 def version_callback(value: bool):
@@ -317,8 +317,10 @@ def generate(
     ip_adapter_map = ip_adapter_preprocess(model_config.ip_adapter_map, width, height, length, save_dir)
 
     # beware the pipeline
-    global g_pipeline
-    global last_model_path
+    # global g_pipeline
+    # global last_model_path
+    g_pipeline = None
+    last_model_path = None
     if g_pipeline is None or last_model_path != model_config.path.resolve():
         g_pipeline = create_pipeline(
             base_model=base_model_path,
@@ -335,12 +337,12 @@ def generate(
 
     load_controlnet_models(pipe=g_pipeline, model_config=model_config)
 
-    if g_pipeline.device == device:
-        logger.info("Pipeline already on the correct device, skipping device transfer")
-    else:
-        g_pipeline = send_to_device(
-            g_pipeline, device, freeze=True, force_half=force_half_vae, compile=model_config.compile
-        )
+    # if g_pipeline.device == device:
+    #     logger.info("Pipeline already on the correct device, skipping device transfer")
+    # else:
+    g_pipeline = send_to_device(
+        g_pipeline, device, freeze=True, force_half=force_half_vae, compile=model_config.compile
+    )
 
     # save raw config to output directory
     save_config_path = save_dir.joinpath("raw_prompt.json")

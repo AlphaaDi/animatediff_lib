@@ -250,9 +250,9 @@ def filter_masks_by_size(labeled_mask, unique_colors, rgb_mask, size_threshold):
     
     return filtered_rgb_mask
 
-def fill_holes_in_mask(mask):
-    filled_mask = ndimage.binary_fill_holes(mask).astype(int)
-    return filled_mask
+# def fill_holes_in_mask(mask):
+#     filled_mask = ndimage.binary_fill_holes(mask).astype(int)
+#     return filled_mask
 
 def fill_holes_in_mask(rgb_mask, threshold=1000):
     # Convert RGB mask to grayscale
@@ -334,7 +334,7 @@ class SamSegPreProcessor:
             map = self.first_mask
             del self.mask_generator
             torch.cuda.empty_cache()
-            self.xmem = PropagationXMem('/home/ishpuntov/weights/XMem-s012.pth', self.device)
+            self.xmem = PropagationXMem('', self.device)
             self.xmem.eval()
         else:
             size = self.xmem_size
@@ -354,6 +354,7 @@ class SamSegPreProcessor:
 
         map = aux_resize_image(map, image_resolution)
         return Image.fromarray(map)
+
 
 def create_controlnet_model(type_str):
     if type_str == "controlnet_tile":
@@ -384,8 +385,8 @@ def create_controlnet_model(type_str):
         return ControlNetModel.from_pretrained('lllyasviel/control_v11p_sd15_scribble')
     elif type_str == "controlnet_seg":
         return ControlNetModel.from_pretrained('lllyasviel/control_v11p_sd15_seg')
-    elif type_str == "controlnet_sam_seg":
-        return ControlNetModel.from_pretrained("mfidabel/controlnet-segment-anything", torch_dtype=torch.float16)
+    # elif type_str == "controlnet_sam_seg":
+    #     return ControlNetModel.from_pretrained("mfidabel/controlnet-segment-anything", torch_dtype=torch.float16)
     elif type_str == "qr_code_monster_v1":
         return ControlNetModel.from_pretrained('monster-labs/control_v1p_sd15_qrcode_monster')
     elif type_str == "qr_code_monster_v2":
@@ -632,7 +633,7 @@ def load_controlnet_models(pipe: AnimationPipeline, model_config: ModelConfig = 
 
 def unload_controlnet_models(pipe: AnimationPipeline):
     from animatediff.utils.util import show_gpu
-    show_gpu("before uload controlnet")
+    show_gpu("before unload controlnet")
     pipe.controlnet_map = None
     torch.cuda.empty_cache()
     show_gpu("after unload controlnet")
